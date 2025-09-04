@@ -46,7 +46,7 @@ def DCRequest(url, proxies_chunk):
 if __name__ == "__main__":
     url = "https://beta.doublecounter.gg/v/5p5061q2m5"
     proxies_list = read_proxy_list("proxies.txt")
-    num_threads = "5"
+    num_threads = int("5")
     proxies_chunks = split_list(proxies_list, num_threads)
 
     threadLock = threading.Lock()
@@ -54,4 +54,5 @@ if __name__ == "__main__":
     [thread.start() for thread in threads]
 
     [thread.join() for thread in threads]
+
 
